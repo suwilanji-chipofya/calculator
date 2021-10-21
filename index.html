@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,body {
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .calc {
+                width: 300px;
+                height: 600px;
+            }
+            
+            .btns>button {
+                outline: none;
+                width: 90px;
+                height: 90px;
+                border-radius: 5px;
+                margin-top: 5px;
+            }
+            #expr {
+                width: 273px;
+                height: 40px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.1.1.js">
+            
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".btns button").on("click",function() {
+                    if($(this).text()=="C") {
+                        $("#expr").val("")
+                    } else if($(this).text()=="=") {
+                        var ans=eval($("#expr").val())
+                        $("#expr").val(ans.toString())
+                    }
+                    else {
+                        var val=$("#expr").val()
+                    $("#expr").val($("#expr").val()+$(this).text())
+                    }
+                    
+                    
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="top">
+                <h2>Dong Calculator</h2>
+            </div>
+            <div class="calc">
+                <input type="text" id="expr" placeholder="Enter Expression"/>
+                
+                <div class="btns">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>0</button>
+                    <button>+</button>
+                    <button>-</button>
+                    <button>/</button>
+                    <button>*</button>
+                    <button>%</button>
+                    <button>C</button>
+                    <button>=</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
